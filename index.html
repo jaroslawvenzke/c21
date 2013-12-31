@@ -1,39 +1,54 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <title>Century 21 - Home</title>
-	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
-    <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
-	<link href='style.css' type='text/css' rel='stylesheet' media='all'>
-  </head>
-  
-  <body>
-<table width="100%" align="center">
-<tr>
-	<td align="center"><img src="img/head.png" width="100%" id="headersize"></td>
-</tr>
-</table>
-
-<br/>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="childbrowser.js"></script>
+    <script type="text/javascript" charset="utf-8">
  
-<table width="90%" align="center">
-<tr>
-	<td width="30%" align="center"><a href="immobilien.html"><img src="img/buttons_immobilien.jpg" id="menuebuttons" width="100%"></a><br><span class="menusize">Immobilien</span></td>
-	<td width="30%" align="center"><a href="ueberuns.html"><img src="img/buttons_ueberuns.jpg" id="menuebuttons" width="100%"></a><br><span class="menusize">&Uuml;ber uns</span></td>
-	<td width="30%" align="center"><a href="tel:496926493710"><img src="img/buttons_direkterdraht.jpg" id="menuebuttons" width="100%"></a><br><span class="menusize">Anrufen</span></td>
-</tr>
-<tr>
-	<td width="30%" align="center"><a href="https://twitter.com/bbImmobilien" target="_blank"><img src="img/buttons_aktuelles.jpg" id="menuebuttons" width="100%"></a><br><span class="menusize">Twitter</span></td>
-	<td width="30%" align="center"><a href="kontakt.html"><img src="img/buttons_rueckruf.jpg" id="menuebuttons" width="100%"></a><br><span class="menusize">Kontakt</span></td>
-	<td width="30%" align="center"><a href="journal.html"><img src="img/buttons_journal.jpg" id="menuebuttons" width="100%"></a><br><span class="menusize">Journal</span></td>
-</tr>
-<tr>
-	<td width="30%" align="center"><a href="https://www.facebook.com/pages/bb-Immobilien/180127548756377" target="_blank"><img src="img/buttons_facebook.jpg" id="menuebuttons" width="100%"></a><br><span class="menusize">Facebook</span></td>
-	<td width="30%" align="center"><a href="video_frame.html"><img src="img/buttons_video.jpg" id="menuebuttons" width="100%"></a><br><span class="menusize">Videos</span></td>
-	<td width="30%" align="center"><a href="magazin.html"><img src="img/buttons_katalog.jpg" id="menuebuttons" width="100%"></a><br><span class="menusize">Magazin</span></td>
-</tr>
-</table>
-
+    // Wait for PhoneGap to load
+    //
+    function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }
+ 
+    // PhoneGap is ready
+    //
+	function onDeviceReady() {
+		showPage(true);
+    }
+	
+		
+		function closed() {
+        /*console.log("The JS got a close event");*/
+		if (navigator.app) {
+			navigator.app.exitApp();
+		}
+		else if (navigator.device) {
+			navigator.device.exitApp();
+			}
+		}
+	
+		function locationChanged(newurl) {
+        /*console.log("The JS got this url = " + newurl);*/
+		}
+		
+		function showPage(locbar) {
+        window.plugins.childBrowser.onLocationChange = locationChanged;
+        window.plugins.childBrowser.onClose = closed;
+        window.plugins.childBrowser.showWebPage("http://www.c21.com/_app/menue.html", { 
+		showLocationBar: locbar, 
+		showNavigationBar: true, 
+		showAddress: false 
+		});
+    }
+	
+	
+    
+    </script>
+  </head>
+  <body onload="onLoad()">
   </body>
-<!--http://www.heise.de/developer/artikel/Cross-Plattform-Apps-mit-PhoneGap-entwickeln-1934535.html-->
 </html>
