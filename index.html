@@ -10,16 +10,16 @@
  
     // Wait for PhoneGap to load
     //
-    /*function onLoad() {
+    function onLoad() {
         document.addEventListener("deviceready", onDeviceReady, false);
     }
  
     // PhoneGap is ready
     //
-	function onDeviceReady() {	
-	}	*/
-	
-	function closed() {
+	if (onDeviceReady) {
+	function onDeviceReady() {
+
+		function closed() {
 			/*console.log("The JS got a close event");*/
 			if (navigator.app) {
 				if (confirm("App beenden?")) navigator.app.exitApp();
@@ -38,7 +38,7 @@
 		function showPage(locbar) {
         window.plugins.childBrowser.onLocationChange = locationChanged;
         window.plugins.childBrowser.onClose = closed;
-        window.plugins.childBrowser.showWebPage("http://www.c21.com/_app/menue.html", { 
+        window.plugins.childBrowser.showWebPage("http://www.immotell.de/_app/menue.html", { 
 		showLocationBar: locbar, 
 		showNavigationBar: true, 
 		showAddress: false 
@@ -47,10 +47,24 @@
 	
 	showPage(true);
 	
+	}
+	}
+	else {
+	if (navigator.app) {
+				if (confirm("App ist down!")) navigator.app.exitApp();
+				/*navigator.app.exitApp();*/
+			}
+			else if (navigator.device) {
+				if (confirm("App is down!")) navigator.device.exitApp();
+				/*navigator.device.exitApp();*/
+				}
+			}
+
+	
     </script>
   </head>
   <body onload="onLoad()">
-  <table width="100%" align="center" cellpadding="0" cellspacing="0">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0">
 	<tr>
 		<td>&nbsp;</td>
 	</tr>
