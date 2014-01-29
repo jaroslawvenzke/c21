@@ -1,6 +1,8 @@
 HTML, BODY { 
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	height: 	100%; 
-
+	margin: 	0px;
+	padding: 	0px;
 }
 
 BODY.menue {
@@ -56,7 +58,7 @@ max-height: 124px;
 
 #headersize {
 max-width: 640px;
-max-height: 180px;
+max-height: 270px;
 }
 
 #howto01 {
@@ -130,4 +132,4 @@ a.newSubmitButtonBack:hover{
   font-weight: bold;
 }
 
-A { color: #eb0003; border: 0px; -moz-outline: none; }
+A { color: #ffffff; border: 0px; -moz-outline: none; }
