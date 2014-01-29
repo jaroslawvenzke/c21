@@ -36,9 +36,11 @@ BODY.norm {
 h1 {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 20px;
-	color: 		#0070b3;
+	color: 		#000000;
 	font-weight: bold;
 }
+
+.fontBG { background-color:#f3b90e; padding:6px; margin:0px; }
 
 span.headerwhite {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
